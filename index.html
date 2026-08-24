@@ -1,218 +1,303 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="keywords" content="Yitao Liu, 刘奕焘, Westlake University, 西湖大学, Ph.D.">
-	<meta name="description" content="Yitao Liu (刘奕焘)'s Home">
-	<title>Yitao Liu (刘奕焘)</title>
-	<style>
-		:root {
-			--link-color: #0366d6;
-			--text-color: #24292f;
-			--muted: #6a737d;
-			--bg: #ffffff;
-			--highlight-bg: #ffffdf;
-			--border: #e1e4e8;
-		}
-		* { box-sizing: border-box; }
-		body {
-			font-family: "Segoe UI", "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
-			color: var(--text-color);
-			background: var(--bg);
-			margin: 0;
-			line-height: 1.65;
-		}
-		#layout-content {
-			max-width: 1000px;
-			margin: 0 auto;
-			padding: 40px 30px 60px;
-		}
-		a { color: var(--link-color); text-decoration: none; }
-		a:hover { text-decoration: underline; }
-		h1 { font-size: 2rem; margin-bottom: 0.3em; }
-		h2 {
-			font-size: 1.35rem;
-			border-bottom: 2px solid var(--border);
-			padding-bottom: 6px;
-			margin-top: 2.2em;
-			margin-bottom: 14px;
-		}
-		h3 { margin-top: -8px; margin-bottom: 10px; font-size: 1.05rem; color: var(--text-color); }
-		p { margin: 10px 0; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="Yitao Liu, 刘奕焘, Westlake University, China University of Geosciences Wuhan, Geotechnical Engineering, Sustainable Development Science and Technology">
+  <meta name="description" content="Yitao Liu (刘奕焘)'s academic homepage">
+  <title>Yitao Liu (刘奕焘)</title>
+  <style>
+    :root {
+      --link-color: #0366d6;
+      --text-color: #24292f;
+      --muted: #6a737d;
+      --bg: #ffffff;
+      --highlight-bg: #ffffdf;
+      --soft-bg: #f6f8fa;
+      --border: #e1e4e8;
+      --accent: #1f6feb;
+      --gold: #8a6d1d;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Segoe UI", "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: var(--text-color); background: var(--bg); margin: 0; line-height: 1.65;
+    }
+    #layout-content { max-width: 1050px; margin: 0 auto; padding: 40px 30px 60px; }
+    a { color: var(--link-color); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    h1 { font-size: 2rem; margin-bottom: .3em; }
+    h2 { font-size: 1.35rem; border-bottom: 2px solid var(--border); padding-bottom: 6px; margin-top: 2.2em; margin-bottom: 14px; }
+    h3 { margin: 0 0 8px; font-size: 1.06rem; }
+    p { margin: 10px 0; }
+    .muted { color: var(--muted); }
+    .small { font-size: .88rem; }
 
-		/* header layout */
-		table.header-table { width: 100%; border-collapse: collapse; }
-		td.intro-col { vertical-align: top; padding-right: 20px; }
-		td.avatar-col { width: 250px; text-align: center; vertical-align: top; }
-		.avatar {
-			width: 230px; height: 230px;
-			object-fit: cover;
-			border-radius: 50%;
-			box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-		}
-		.icon-row a img, .icon-row svg { height: 28px; width: auto; vertical-align: middle; margin-bottom: 3px; margin-right: 6px; opacity: 0.85; transition: transform .15s ease, opacity .15s ease; }
-		.icon-row a:hover img { opacity: 1; transform: scale(1.08); }
-		.badges img { height: 20px; margin-right: 6px; vertical-align: middle; }
+    /* header */
+    table.header-table { width: 100%; border-collapse: collapse; }
+    td.intro-col { vertical-align: top; padding-right: 20px; }
+    td.avatar-col { width: 250px; text-align: center; vertical-align: top; }
+    .avatar { width: 230px; height: 230px; object-fit: cover; border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,.15); }
+    .icon-row a img, .icon-row svg { height: 28px; width: auto; vertical-align: middle; margin-bottom: 3px; margin-right: 6px; opacity: .85; transition: transform .15s ease, opacity .15s ease; }
+    .icon-row a:hover img { opacity: 1; transform: scale(1.08); }
+    .badges img { height: 20px; margin-right: 6px; vertical-align: middle; }
+    .quick-nav { margin: 16px 0 0; display: flex; flex-wrap: wrap; gap: 8px; }
+    .quick-nav a { font-size: .84rem; border: 1px solid var(--border); border-radius: 999px; padding: 3px 10px; background: var(--soft-bg); }
 
-		@media (max-width: 720px) {
-			table.header-table, tbody, tr, td { display: block; width: 100% !important; }
-			td.avatar-col { text-align: left; margin-top: 20px; }
-			.avatar { width: 160px; height: 160px; }
-		}
+    /* news */
+    .news-box { max-height: 190px; overflow-y: auto; font-size: .92em; background: #fafbfc; border: 1px solid var(--border); border-radius: 6px; padding: 10px 16px; }
+    .news-box ul { margin: 6px 0; padding-left: 18px; }
+    .news-box li { margin-bottom: 6px; }
 
-		/* news */
-		.news-box {
-			height: 150px;
-			overflow-y: auto;
-			font-size: 0.92em;
-			background: #fafbfc;
-			border: 1px solid var(--border);
-			border-radius: 6px;
-			padding: 10px 16px;
-		}
-		.news-box ul { margin: 6px 0; padding-left: 18px; }
-		.news-box li { margin-bottom: 6px; }
-		.scroll-hint { font-size: 0.8em; color: var(--muted); margin: 4px 0; }
+    /* education */
+    .item-table { width: 100%; border-collapse: collapse; margin-bottom: 18px; }
+    .item-table td { vertical-align: middle; padding: 8px; }
+    .item-logo-cell { width: 285px; text-align: center; }
+    .item-logo { max-height: 90px; max-width: 250px; object-fit: contain; }
+    .text-logo { display: inline-flex; align-items: center; justify-content: center; width: 210px; height: 76px; border: 1px solid var(--border); border-radius: 8px; background: var(--soft-bg); font-weight: 700; color: #34495e; }
+    .item-title { font-weight: 700; font-size: 1em; }
+    .item-sub { font-size: .88em; font-weight: 600; }
+    .item-desc { font-size: .88em; color: var(--muted); }
 
-		/* education / research rows */
-		.item-table { width: 100%; border-collapse: collapse; margin-bottom: 18px; }
-		.item-table td { vertical-align: middle; padding: 8px; }
-		.item-logo-cell { width: 300px; text-align: center; }
-		.item-logo {
-			max-height: 90px; max-width: 260px;
-			object-fit: contain;
-		}
-		.item-title { font-weight: 700; font-size: 1em; }
-		.item-sub { font-size: 0.86em; color: var(--text-color); font-weight: 600; }
-		.item-desc { font-size: 0.88em; color: var(--muted); }
-		.pub-note { background: var(--highlight-bg); }
-		.research-img {
-			width: 180px; height: auto;
-			border-radius: 4px;
-			box-shadow: 3px 3px 6px rgba(0,0,0,0.25);
-		}
-		.paper-title { color: #456fc3; font-size: 1em; font-weight: 700; }
-		footer {
-			margin-top: 60px;
-			text-align: center;
-			font-size: 0.82em;
-			color: var(--muted);
-			border-top: 1px solid var(--border);
-			padding-top: 18px;
-		}
-	</style>
+    /* research */
+    .research-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; }
+    .research-card { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: #fff; }
+    .research-card img { width: 100%; height: 205px; object-fit: contain; background: var(--soft-bg); display: block; border-bottom: 1px solid var(--border); }
+    .research-body { padding: 14px 16px 16px; }
+    .tag { display: inline-block; font-size: .74rem; line-height: 1.5; padding: 2px 7px; margin-right: 5px; border-radius: 999px; background: #ddf4ff; color: #0969da; font-weight: 700; }
+    .tag.gold { background: #fff8c5; color: #7d4e00; }
+    .tag.green { background: #dafbe1; color: #116329; }
+    .project-list { margin: 0; padding-left: 20px; }
+    .project-list li { margin: 8px 0; }
+
+    /* awards */
+    .award-summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 14px 0 18px; }
+    .stat { border: 1px solid var(--border); border-radius: 9px; padding: 12px; background: var(--soft-bg); text-align: center; }
+    .stat b { display: block; font-size: 1.35rem; }
+    .award-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 14px; }
+    .award-card { border: 1px solid var(--border); border-radius: 9px; overflow: hidden; background: #fff; }
+    .award-card a { display: block; background: var(--soft-bg); }
+    .award-card img { width: 100%; height: 195px; object-fit: contain; display: block; }
+    .award-body { padding: 10px 12px 12px; }
+    .award-title { font-weight: 700; font-size: .91rem; line-height: 1.45; }
+    .award-meta { color: var(--muted); font-size: .78rem; margin-top: 4px; }
+    details { margin: 12px 0; border: 1px solid var(--border); border-radius: 8px; padding: 0 14px; }
+    summary { cursor: pointer; font-weight: 700; padding: 10px 0; }
+    details[open] { padding-bottom: 14px; }
+
+    footer { margin-top: 60px; text-align: center; font-size: .82em; color: var(--muted); border-top: 1px solid var(--border); padding-top: 18px; }
+
+    @media (max-width: 820px) {
+      .research-grid, .award-grid { grid-template-columns: 1fr 1fr; }
+      .award-summary { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 720px) {
+      table.header-table, tbody, tr, td { display: block; width: 100% !important; }
+      td.avatar-col { text-align: left; margin-top: 20px; }
+      .avatar { width: 160px; height: 160px; }
+      .item-logo-cell { text-align: left; }
+    }
+    @media (max-width: 560px) {
+      #layout-content { padding: 26px 18px 45px; }
+      .research-grid, .award-grid, .award-summary { grid-template-columns: 1fr; }
+      .research-card img, .award-card img { height: auto; max-height: 420px; }
+    }
+  </style>
 </head>
 <body>
 <div id="layout-content">
+  <table class="header-table">
+    <tbody><tr>
+      <td class="intro-col">
+        <h1>Yitao Liu <span style="font-weight:400">(刘奕焘)</span></h1>
+        <h3>🎓 Ph.D. Student @ <a href="https://en.westlake.edu.cn/" target="_blank">Westlake University</a></h3>
+        <p class="muted">Sustainable Development Science and Technology · School of Engineering</p>
+        <p class="icon-row" style="margin-top:18px;">
+          <a href="mailto:your-email@example.com" target="_blank" title="Email">
+            <svg viewBox="0 0 24 24" fill="#c71610"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </a>
+          <a href="https://github.com/liuyitaocug" target="_blank" title="GitHub">
+            <svg viewBox="0 0 16 16" fill="#181717"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          </a>
+          <a href="#" title="Google Scholar（请替换为你的链接）">
+            <svg viewBox="0 0 24 24" fill="#4285F4"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/></svg>
+          </a>
+          <a href="./files/CV.pdf" title="CV">[CV]</a>
+        </p>
+        <p class="badges">
+          <img alt="GitHub followers" src="https://img.shields.io/github/followers/liuyitaocug?style=social">
+          <a href="https://visitorbadge.io/status?path=https%3A%2F%2Fliuyitaocug.github.io"><img alt="visitor badge" src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fliuyitaocug.github.io&label=VISITORS&labelColor=%232ccce4&countColor=%230158f9"></a>
+        </p>
+        <div class="quick-nav">
+          <a href="#research">Research</a><a href="#projects">Projects</a><a href="#honors">Honors</a><a href="#gallery">Certificates</a>
+        </div>
+      </td>
+      <td class="avatar-col">
+        <img class="avatar" src="./files/avatar.jpg" alt="avatar" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22230%22 height=%22230%22><rect fill=%22%23e8eef5%22 width=%22230%22 height=%22230%22/><text x=%2250%25%22 y=%2255%25%22 font-size=%2230%22 fill=%22%239aa7b5%22 text-anchor=%22middle%22 font-family=%22sans-serif%22>照片占位</text></svg>';">
+      </td>
+    </tr></tbody>
+  </table>
 
-	<table class="header-table">
-		<tbody><tr>
-			<td class="intro-col">
-				<h1>Yitao Liu <span style="font-weight:400">(刘奕焘)</span></h1>
-				<h3>🎓 Ph.D. Student @ <a href="https://en.westlake.edu.cn/" target="_blank">Westlake University</a></h3>
+  <h2>Biography</h2>
+  <div style="font-size:.96em">
+    <p>Hi! I am <strong>Yitao Liu (刘奕焘)</strong>, currently a Ph.D. student at the <a href="https://en.westlake.edu.cn/" target="_blank">School of Engineering, Westlake University</a>, majoring in <strong>Sustainable Development Science and Technology</strong> under the supervision of <strong>Prof. Liang Lei (雷亮)</strong>.</p>
+    <p>I received my B.S. in <strong>Geological Engineering</strong> from <strong>China University of Geosciences (Wuhan)</strong>. During my undergraduate study, I ranked <strong>2/69</strong> with a GPA of <strong>3.93</strong>, and also completed a minor in <strong>Computer Science and Technology</strong>. In 2025, I received a full scholarship from the China Scholarship Council (CSC) for an exchange at Peter the Great St. Petersburg Polytechnic University.</p>
+    <p>My undergraduate research focused on <strong>geotechnical engineering</strong>, <strong>granular materials</strong>, <strong>slope stability</strong>, <strong>rock-soil mechanics</strong>, and <strong>numerical simulation of geological hazards</strong>. I am especially interested in combining experiments, mechanics, numerical methods and data analysis to understand complex geomaterials and hazard processes.</p>
+    <p><b><i style="color:#c71610;">Feel free to contact me if you are interested in discussing or collaborating with me!</i></b></p>
+  </div>
 
-				<p class="icon-row" style="margin-top:18px;">
-					<a href="mailto:your-email@example.com" target="_blank" title="Email">
-						<svg viewBox="0 0 24 24" fill="#c71610"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-					</a>
-					<a href="https://github.com/liuyitaocug" target="_blank" title="GitHub">
-						<svg viewBox="0 0 16 16" fill="#181717"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-					</a>
-					<a href="#" title="Google Scholar（替换为你的链接）">
-						<svg viewBox="0 0 24 24" fill="#4285F4"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/></svg>
-					</a>
-					<a href="./files/CV.pdf" title="CV">[CV]</a>
-				</p>
-				<p class="badges">
-					<img alt="GitHub followers" src="https://img.shields.io/github/followers/liuyitaocug?style=social">
-					<a href="https://visitorbadge.io/status?path=https%3A%2F%2Fliuyitaocug.github.io"><img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fliuyitaocug.github.io&label=VISITORS&labelColor=%232ccce4&countColor=%230158f9"></a>
-				</p>
-			</td>
-			<td class="avatar-col">
-				<img class="avatar" src="./files/avatar.jpg" alt="avatar"
-					onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22230%22 height=%22230%22><rect fill=%22%23e8eef5%22 width=%22230%22 height=%22230%22/><text x=%2250%25%22 y=%2255%25%22 font-size=%2230%22 fill=%22%239aa7b5%22 text-anchor=%22middle%22 font-family=%22sans-serif%22>照片占位</text></svg>';">
-			</td>
-		</tr></tbody>
-	</table>
+  <h2>News</h2>
+  <div class="news-box"><ul>
+    <li>[08/2026] Started my Ph.D. journey at Westlake University. 🎉</li>
+    <li>[05/2026] Received an Honorable Mention in the 2026 Mathematical Contest in Modeling (MCM/ICM).</li>
+    <li>[2025] First-author paper on residual gravelly clay slope sampling interval and stability was accepted by <i>Safety and Environmental Engineering</i> (北大核心).</li>
+    <li>[2025] Received the CSC full scholarship for an exchange program at Peter the Great St. Petersburg Polytechnic University.</li>
+  </ul></div>
 
-	<h2>Biography</h2>
-	<div style="font-size:0.96em">
-		Hi! I am <strong>Yitao Liu (刘奕焘)</strong>, currently a <u>Ph.D. student</u> at
-		<a href="https://en.westlake.edu.cn/" target="_blank">Westlake University</a>.<br><br>
+  <h2>Education</h2>
+  <table class="item-table"><tbody><tr>
+    <td class="item-logo-cell"><img class="item-logo" src="https://upload.wikimedia.org/wikipedia/en/a/a6/Westlake_University_logo.svg" alt="Westlake University" onerror="this.style.display='none'"></td>
+    <td>
+      <p class="item-title"><a href="https://en.westlake.edu.cn/" target="_blank">Westlake University</a> (西湖大学)</p>
+      <p class="item-sub">Ph.D. Student · Sustainable Development Science and Technology · School of Engineering</p>
+      <p class="item-desc">2026 – Present &nbsp;|&nbsp; Supervisor: Prof. Liang Lei (雷亮)</p>
+    </td>
+  </tr></tbody></table>
+  <table class="item-table"><tbody><tr>
+    <td class="item-logo-cell"><div class="text-logo">CUG · 中国地质大学（武汉）</div></td>
+    <td>
+      <p class="item-title">China University of Geosciences (Wuhan) (中国地质大学（武汉）)</p>
+      <p class="item-sub">B.S. in Geological Engineering · Minor in Computer Science and Technology</p>
+      <p class="item-desc">Undergraduate GPA: 3.93 &nbsp;|&nbsp; Rank: 2/69</p>
+    </td>
+  </tr></tbody></table>
 
-		<!-- TODO: 在这里补充你的本科院校、专业、导师等信息 -->
-		My research interests include <b>TODO：研究方向一</b>, <b>TODO：研究方向二</b>.
-		<p><b><i style="color:#c71610;">Feel free to contact me if you are interested in discussing or collaborating with me!</i></b></p>
-	</div>
+  <h2 id="research">Research & Publications</h2>
+  <div class="research-grid">
+    <article class="research-card">
+      <a href="./files/evidence/paper_first_page.jpg" target="_blank"><img src="./files/evidence/paper_first_page.jpg" alt="First-author paper evidence" loading="lazy"></a>
+      <div class="research-body">
+        <span class="tag gold">First Author</span><span class="tag">Accepted</span>
+        <h3>残积含碎石黏土斜坡力学特性参数最优采样间距及稳定性研究</h3>
+        <p class="small"><b><u>Yitao Liu (刘奕焘)</u></b> · <i>Safety and Environmental Engineering</i> (安全与环境工程), Peking University Core Journal.</p>
+        <p class="item-desc">Research on optimal sampling interval for mechanical parameters and stability evaluation of residual gravelly-clay slopes.</p>
+      </div>
+    </article>
 
-	<h2>News</h2>
-	<div class="news-box">
-		<ul>
-			<li>[08/2026] Started my Ph.D. journey at Westlake University! 🎉</li>
-			<li>[TODO 日期] TODO：获奖/入学/论文等动态。</li>
-		</ul>
-	</div>
-	<div class="scroll-hint">⬆ scrollable</div>
+    <article class="research-card">
+      <a href="./files/evidence/software_copyright.jpg" target="_blank"><img src="./files/evidence/software_copyright.jpg" alt="Software copyright certificate" loading="lazy"></a>
+      <div class="research-body">
+        <span class="tag green">Software Copyright</span><span class="tag gold">First Programmer</span>
+        <h3>含碎石黏土斜坡特性参数及空间变异性分析软件 V1.0</h3>
+        <p class="small">Registration No. <b>2024SR0859351</b> · Registered 2024-06-24.</p>
+        <p class="item-desc">Software for characteristic-parameter and spatial-variability analysis of gravelly-clay slopes.</p>
+      </div>
+    </article>
 
-	<h2>Education</h2>
-	<table class="item-table">
-		<tbody><tr>
-			<td class="item-logo-cell">
-				<img class="item-logo" src="https://upload.wikimedia.org/wikipedia/en/a/a6/Westlake_University_logo.svg" alt="Westlake University"
-					onerror="this.style.display='none'">
-			</td>
-			<td>
-				<p class="item-title"><a href="https://en.westlake.edu.cn/" target="_blank">Westlake University</a> (西湖大学)</p>
-				<p class="item-sub">Ph.D. Student · TODO：学院/专业名称</p>
-				<p class="item-desc">Sep. 2026 – Present &nbsp;|&nbsp; Supervisor: TODO 导师姓名</p>
-			</td>
-		</tr></tbody>
-	</table>
-	<table class="item-table">
-		<tbody><tr>
-			<td class="item-logo-cell">
-				<span style="color:#adb5bd;font-size:0.85em;">TODO：本科学校 Logo</span>
-			</td>
-			<td>
-				<p class="item-title">TODO 本科学校名称</p>
-				<p class="item-sub">B.S. in TODO 专业</p>
-				<p class="item-desc">Sep. 20XX – Jun. 20XX</p>
-			</td>
-		</tr></tbody>
-	</table>
+    <article class="research-card">
+      <a href="./files/evidence/patent_application.jpg" target="_blank"><img src="./files/evidence/patent_application.jpg" alt="Patent application evidence" loading="lazy"></a>
+      <div class="research-body">
+        <span class="tag green">Invention Patent</span>
+        <h3>岩溶区非均质岩组试验用岩样的制作方法及试验用岩样</h3>
+        <p class="small">Chinese invention patent · Application No. <b>CN202411383740.8</b> · listed as 5th inventor.</p>
+        <p class="item-desc">A specimen-preparation method for experimental studies of heterogeneous rock assemblages in karst areas.</p>
+      </div>
+    </article>
 
-	<h2>Research</h2>
-	<div style="height:8px"></div>
+    <article class="research-card">
+      <a href="./files/evidence/lab_fund_excellent.jpg" target="_blank"><img src="./files/evidence/lab_fund_excellent.jpg" alt="Laboratory open fund excellent completion certificate" loading="lazy"></a>
+      <div class="research-body">
+        <span class="tag">Manuscript / Experimental Study</span>
+        <h3>Unloaded-rest-associated transition from stick-slip to stable slip in ring-sheared soda-lime glass beads</h3>
+        <p class="small">Manuscript submitted to <i>Granular Matter</i> during the undergraduate period.</p>
+        <p class="item-desc">Ring-shear experiments investigate the time-dependent transition of granular materials from stick-slip toward stable sliding after resting periods.</p>
+      </div>
+    </article>
+  </div>
 
-	<!-- 复制这个表格即可新增一篇论文/项目 -->
-	<table class="item-table pub-note">
-		<tbody><tr style="width:100%">
-			<td width="210" style="padding-top:10px;padding-bottom:10px;text-align:center;">
-				<img class="research-img" src="./files/research_placeholder.png" alt="teaser"
-					onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22180%22 height=%22135%22><rect fill=%22%23eef3f8%22 width=%22180%22 height=%22135%22/><text x=%2250%25%22 y=%2255%25%22 font-size=%2214%22 fill=%22%239aa7b5%22 text-anchor=%22middle%22 font-family=%22sans-serif%22>Teaser 图占位</text></svg>';">
-			</td>
-			<td style="padding:10px">
-				<b class="paper-title">TODO：论文标题</b>
-				<div style="height:5px"></div>
-				<div class="item-desc"><b><u>Yitao Liu</u></b>, TODO 其他作者</div>
-				<div style="height:5px"></div>
-				<div class="item-desc"><span style="color:#c71610;font-weight:700;">TODO 会议/期刊 年份</span></div>
-				<div style="height:5px"></div>
-				<div class="item-desc">
-					<a href="#">[Paper]</a> /
-					<a href="#">[arXiv]</a> /
-					<a href="#">[Code]</a>
-				</div>
-			</td>
-		</tr></tbody>
-	</table>
+  <h2 id="projects">Undergraduate Research Projects</h2>
+  <ul class="project-list">
+    <li><b>Provincial Undergraduate Innovation Project:</b> 基于耦合 FDEM-CEL 方法的高位远程滑坡涌浪灾害链数值模拟研究 — completed May 2025; experimental work.</li>
+    <li><b>University Project:</b> 堆积层斜坡含碎石黏土体基本结构剪切特性试验研究 — completed May 2026; experiments and paper preparation.</li>
+    <li><b>Laboratory Open Fund:</b> 岩溶区抽水蓄能工程非均质岩组力学特性参数实验研究 — completed May 2025; experiments and paper preparation.</li>
+    <li><b>University Project:</b> 基于脱硫石膏的预应力孔道压浆料配合比设计和特性研究 — completed May 2026; experimental work.</li>
+  </ul>
+  <div class="research-grid" style="margin-top:14px;">
+    <article class="research-card"><a href="./files/evidence/innovation_project.jpg" target="_blank"><img src="./files/evidence/innovation_project.jpg" alt="Undergraduate innovation project completion certificate" loading="lazy"></a><div class="research-body"><h3>Undergraduate Innovation Project</h3><p class="item-desc">Completion certificate for the FDEM-CEL landslide-tsunami hazard-chain project.</p></div></article>
+    <article class="research-card"><a href="./files/evidence/csc_exchange.jpg" target="_blank"><img src="./files/evidence/csc_exchange.jpg" alt="CSC exchange evidence" loading="lazy"></a><div class="research-body"><h3>CSC-funded International Exchange</h3><p class="item-desc">Full-scholarship exchange at Peter the Great St. Petersburg Polytechnic University.</p></div></article>
+  </div>
 
-	<footer>
-		Last updated: Aug 2026<br>
-		Thanks to <a href="https://github.com/jeffyaoliang" target="_blank">Yaoliang Bian</a>'s homepage for the template inspiration.
-	</footer>
+  <h2 id="honors">Honors & Awards</h2>
+  <div class="award-summary">
+    <div class="stat"><b>1</b><span>International competition award</span></div>
+    <div class="stat"><b>3+</b><span>National-level competition awards</span></div>
+    <div class="stat"><b>6+</b><span>Provincial competition awards</span></div>
+    <div class="stat"><b>15+</b><span>University-level & above awards</span></div>
+  </div>
 
+  <details open>
+    <summary>Major Scholarships & Personal Honors</summary>
+    <div class="award-grid">
+      <div class="award-card"><a href="./files/evidence/national_scholarship.jpg" target="_blank"><img src="./files/evidence/national_scholarship.jpg" loading="lazy" alt="National Scholarship"></a><div class="award-body"><div class="award-title">2023–2024 National Scholarship</div><div class="award-meta">National · Ministry of Education · 2025</div></div></div>
+      <div class="award-card"><a href="./files/evidence/csc_exchange.jpg" target="_blank"><img src="./files/evidence/csc_exchange.jpg" loading="lazy" alt="CSC scholarship"></a><div class="award-body"><div class="award-title">China Scholarship Council (CSC) Full Scholarship</div><div class="award-meta">National · 2025</div></div></div>
+      <div class="award-card"><a href="./files/evidence/engineering_top_student.jpg" target="_blank"><img src="./files/evidence/engineering_top_student.jpg" loading="lazy" alt="Top student award"></a><div class="award-body"><div class="award-title">Top Ten Outstanding Students, School of Engineering & Dean Scholarship</div><div class="award-meta">University/School · 2025</div></div></div>
+      <div class="award-card"><a href="./files/evidence/zhan_zhibin_scholarship.jpg" target="_blank"><img src="./files/evidence/zhan_zhibin_scholarship.jpg" loading="lazy" alt="Zhan Zhibin scholarship"></a><div class="award-body"><div class="award-title">Zhan Zhibin Alumni Special Scholarship</div><div class="award-meta">University · 2025</div></div></div>
+      <div class="award-card"><a href="./files/evidence/earth_talent_scholarship.jpg" target="_blank"><img src="./files/evidence/earth_talent_scholarship.jpg" loading="lazy" alt="Dida Talent Scholarship"></a><div class="award-body"><div class="award-title">“Dida Talent” Scholarship & Outstanding Individual Award</div><div class="award-meta">University · 2023</div></div></div>
+      <div class="award-card"><a href="./files/evidence/outstanding_student_model.jpg" target="_blank"><img src="./files/evidence/outstanding_student_model.jpg" loading="lazy" alt="Outstanding student model"></a><div class="award-body"><div class="award-title">University Outstanding Student Model</div><div class="award-meta">University · 2025</div></div></div>
+      <div class="award-card"><a href="./files/evidence/outstanding_youth_league.jpg" target="_blank"><img src="./files/evidence/outstanding_youth_league.jpg" loading="lazy" alt="Outstanding Youth League member"></a><div class="award-body"><div class="award-title">Outstanding Communist Youth League Member</div><div class="award-meta">University · 2023–2024 & 2024–2025</div></div></div>
+      <div class="award-card"><a href="./files/evidence/zhoukou_field.jpg" target="_blank"><img src="./files/evidence/zhoukou_field.jpg" loading="lazy" alt="Zhoukoudian field practice"></a><div class="award-body"><div class="award-title">Outstanding Intern, Zhoukoudian Field Geology Practice</div><div class="award-meta">University · 2024</div></div></div>
+      <div class="award-card"><a href="./files/evidence/lecturer_appointment.jpg" target="_blank"><img src="./files/evidence/lecturer_appointment.jpg" loading="lazy" alt="Lecturer appointment"></a><div class="award-body"><div class="award-title">Lecturer, School of Engineering Lixing Presentation Group</div><div class="award-meta">School honor/service · 2025–2026</div></div></div>
+    </div>
+  </details>
+
+  <details open>
+    <summary>Academic & Competition Awards</summary>
+    <div class="award-grid">
+      <div class="award-card"><a href="./files/evidence/mcm_honorable.jpg" target="_blank"><img src="./files/evidence/mcm_honorable.jpg" loading="lazy" alt="MCM Honorable Mention"></a><div class="award-body"><div class="award-title">2026 Mathematical Contest in Modeling (MCM/ICM) — Honorable Mention</div><div class="award-meta">International · 2026</div></div></div>
+      <div class="award-card"><a href="./files/evidence/national_math_contest.jpg" target="_blank"><img src="./files/evidence/national_math_contest.jpg" loading="lazy" alt="National college mathematics contest"></a><div class="award-body"><div class="award-title">15th National College Students Mathematics Competition (Non-math A) — Third Prize</div><div class="award-meta">National · 2023</div></div></div>
+      <div class="award-card"><a href="./files/evidence/apmcm_first.jpg" target="_blank"><img src="./files/evidence/apmcm_first.jpg" loading="lazy" alt="APMCM first prize"></a><div class="award-body"><div class="award-title">2024 APMCM Asia-Pacific Mathematical Contest in Modeling — First Prize</div><div class="award-meta">National-level listing · 2024</div></div></div>
+      <div class="award-card"><a href="./files/evidence/mathorcup_bigdata_first.jpg" target="_blank"><img src="./files/evidence/mathorcup_bigdata_first.jpg" loading="lazy" alt="MathorCup big data first prize"></a><div class="award-body"><div class="award-title">5th MathorCup Mathematical Application Challenge – Big Data Competition — First Prize</div><div class="award-meta">National · 2024</div></div></div>
+      <div class="award-card"><a href="./files/evidence/national_modeling_hubei_first.jpg" target="_blank"><img src="./files/evidence/national_modeling_hubei_first.jpg" loading="lazy" alt="National modeling Hubei first prize"></a><div class="award-body"><div class="award-title">National Undergraduate Mathematical Contest in Modeling, Hubei — First Prize</div><div class="award-meta">Provincial · 2024</div></div></div>
+      <div class="award-card"><a href="./files/evidence/market_research_hubei_second.jpg" target="_blank"><img src="./files/evidence/market_research_hubei_second.jpg" loading="lazy" alt="Market research Hubei second prize"></a><div class="award-body"><div class="award-title">14th “Zhengda Cup” Market Survey & Analysis Competition, Hubei — Second Prize</div><div class="award-meta">Provincial · 2024</div></div></div>
+      <div class="award-card"><a href="./files/evidence/physics_experiment_hubei_third.jpg" target="_blank"><img src="./files/evidence/physics_experiment_hubei_third.jpg" loading="lazy" alt="Physics experiment Hubei third prize"></a><div class="award-body"><div class="award-title">9th Hubei College Physics Experiment Innovation Design Competition — Third Prize</div><div class="award-meta">Provincial · 2024</div></div></div>
+      <div class="award-card"><a href="./files/evidence/zhou_peiyuan_hubei_third.jpg" target="_blank"><img src="./files/evidence/zhou_peiyuan_hubei_third.jpg" loading="lazy" alt="Zhou Peiyuan mechanics competition"></a><div class="award-body"><div class="award-title">15th Zhou Peiyuan National College Mechanics Competition, Hubei — Third Prize</div><div class="award-meta">Provincial · 2025</div></div></div>
+      <div class="award-card"><a href="./files/evidence/english_writing_hubei_third.jpg" target="_blank"><img src="./files/evidence/english_writing_hubei_third.jpg" loading="lazy" alt="English writing competition third prize"></a><div class="award-body"><div class="award-title">2024 National College English Writing Competition — Third Prize</div><div class="award-meta">Provincial · 2024</div></div></div>
+      <div class="award-card"><a href="./files/evidence/mathorcup_second.jpg" target="_blank"><img src="./files/evidence/mathorcup_second.jpg" loading="lazy" alt="MathorCup second prize"></a><div class="award-body"><div class="award-title">14th MathorCup Mathematical Application Challenge — Second Prize</div><div class="award-meta">Provincial/Regional · 2024</div></div></div>
+      <div class="award-card"><a href="./files/evidence/cug_math_third.jpg" target="_blank"><img src="./files/evidence/cug_math_third.jpg" loading="lazy" alt="CUG mathematics competition third prize"></a><div class="award-body"><div class="award-title">CUG (Wuhan) Undergraduate Mathematics Competition — Third Prize</div><div class="award-meta">University · 2023</div></div></div>
+      <div class="award-card"><a href="./files/evidence/vocab_contest_third.jpg" target="_blank"><img src="./files/evidence/vocab_contest_third.jpg" loading="lazy" alt="Vocabulary contest third prize"></a><div class="award-body"><div class="award-title">4th “SFLEP · Vocabulary Cup” National College English Vocabulary Contest — Third Prize</div><div class="award-meta">University division · 2024</div></div></div>
+      <div class="award-card"><a href="./files/evidence/info_research_third.jpg" target="_blank"><img src="./files/evidence/info_research_third.jpg" loading="lazy" alt="Information research contest third prize"></a><div class="award-body"><div class="award-title">19th CUG (Wuhan) Information Research Competition — Third Prize</div><div class="award-meta">University · 2024</div></div></div>
+      <div class="award-card"><a href="./files/evidence/innovation_competition_first.jpg" target="_blank"><img src="./files/evidence/innovation_competition_first.jpg" loading="lazy" alt="Innovation competition first prize"></a><div class="award-body"><div class="award-title">China International College Students’ Innovation Competition (2025) — First Prize</div><div class="award-meta">University · 2025</div></div></div>
+      <div class="award-card"><a href="./files/evidence/paper_report_third.jpg" target="_blank"><img src="./files/evidence/paper_report_third.jpg" loading="lazy" alt="Undergraduate paper report third prize"></a><div class="award-body"><div class="award-title">School of Engineering Undergraduate Scientific Paper Presentation — Third Prize</div><div class="award-meta">School · 2025</div></div></div>
+      <div class="award-card"><a href="./files/evidence/engineering_info_research_first.jpg" target="_blank"><img src="./files/evidence/engineering_info_research_first.jpg" loading="lazy" alt="Engineering information research first prize"></a><div class="award-body"><div class="award-title">19th School of Engineering Information Research Competition — First Prize</div><div class="award-meta">School · 2024</div></div></div>
+    </div>
+  </details>
+
+  <details>
+    <summary>Social Practice & Other Awards</summary>
+    <div class="award-grid">
+      <div class="award-card"><a href="./files/evidence/social_practice_home.jpg" target="_blank"><img src="./files/evidence/social_practice_home.jpg" loading="lazy" alt="Bring CUG home social practice"></a><div class="award-body"><div class="award-title">11th “Bring CUG Back Home” Social Practice Activity — First Prize</div><div class="award-meta">University · 2023</div></div></div>
+      <div class="award-card"><a href="./files/evidence/social_practice_sanxiaxiang.jpg" target="_blank"><img src="./files/evidence/social_practice_sanxiaxiang.jpg" loading="lazy" alt="Sanxiaxiang social practice"></a><div class="award-body"><div class="award-title">2023 Summer “Three Rural Areas” Social Practice — Third Prize</div><div class="award-meta">University · 2023</div></div></div>
+      <div class="award-card"><a href="./files/evidence/double_hundred_action.jpg" target="_blank"><img src="./files/evidence/double_hundred_action.jpg" loading="lazy" alt="Double Hundred Dream Action"></a><div class="award-body"><div class="award-title">2023 Summer “Double Hundred Inspirational Dream Action” — Second Prize</div><div class="award-meta">University · 2023</div></div></div>
+      <div class="award-card"><a href="./files/evidence/engineering_social_practice.jpg" target="_blank"><img src="./files/evidence/engineering_social_practice.jpg" loading="lazy" alt="Engineering social practice"></a><div class="award-body"><div class="award-title">2023 School of Engineering Summer Social Practice — Third Prize</div><div class="award-meta">School · 2023</div></div></div>
+    </div>
+  </details>
+
+  <h2 id="gallery">Research Evidence Gallery</h2>
+  <p class="muted small">Click any image to open a larger version. The images below are cropped from the supporting-material PDF and are stored locally for GitHub Pages.</p>
+  <div class="award-grid">
+    <div class="award-card"><a href="./files/evidence/software_copyright.jpg" target="_blank"><img src="./files/evidence/software_copyright.jpg" loading="lazy" alt="Software copyright"></a><div class="award-body"><div class="award-title">Software Copyright</div></div></div>
+    <div class="award-card"><a href="./files/evidence/patent_application.jpg" target="_blank"><img src="./files/evidence/patent_application.jpg" loading="lazy" alt="Patent application"></a><div class="award-body"><div class="award-title">Invention Patent</div></div></div>
+    <div class="award-card"><a href="./files/evidence/paper_first_page.jpg" target="_blank"><img src="./files/evidence/paper_first_page.jpg" loading="lazy" alt="Paper first page"></a><div class="award-body"><div class="award-title">First-author Paper</div></div></div>
+    <div class="award-card"><a href="./files/evidence/innovation_project.jpg" target="_blank"><img src="./files/evidence/innovation_project.jpg" loading="lazy" alt="Innovation project"></a><div class="award-body"><div class="award-title">Innovation Project Completion</div></div></div>
+    <div class="award-card"><a href="./files/evidence/lab_fund_excellent.jpg" target="_blank"><img src="./files/evidence/lab_fund_excellent.jpg" loading="lazy" alt="Lab fund excellent completion"></a><div class="award-body"><div class="award-title">Lab Open Fund Excellent Completion</div></div></div>
+    <div class="award-card"><a href="./files/evidence/csc_exchange.jpg" target="_blank"><img src="./files/evidence/csc_exchange.jpg" loading="lazy" alt="CSC exchange"></a><div class="award-body"><div class="award-title">CSC International Exchange</div></div></div>
+  </div>
+
+  <footer>
+    Last updated: Aug 2026<br>
+    Thanks to <a href="https://github.com/jeffyaoliang" target="_blank">Yaoliang Bian</a>'s homepage for the template inspiration.
+  </footer>
 </div>
 </body>
 </html>
