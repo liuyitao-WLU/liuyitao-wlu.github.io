@@ -186,6 +186,19 @@
     .hcard-img{flex:0 0 300px;max-height:210px;overflow:hidden;background:var(--soft)}
     .hcard-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
     .hcard:hover .hcard-img img{transform:scale(1.04)}
+    /* Tall image variant: keep full image visible (no cropping) */
+    .hcard.hcard-img-tall .hcard-img{
+      flex:0 0 240px;
+      max-height:none;
+      background:#f8fafc;
+      display:flex;align-items:center;justify-content:center;
+      padding:10px;
+    }
+    .hcard.hcard-img-tall .hcard-img img{
+      width:100%;height:auto;
+      max-height:560px;
+      object-fit:contain;
+    }
     /* Expandable variant: keep full image visible, sync body height to image */
     .hcard.hcard-expandable .hcard-img{
       flex:0 0 320px;max-height:480px;
@@ -724,8 +737,8 @@
     </div>
   </div>
 
-  <div class="hcard">
-    <div class="hcard-img"><a href="./files/evidence/software_copyright.jpg" target="_blank"><img src="./files/evidence/software_copyright.jpg" alt="Software copyright" loading="lazy"></a></div>
+  <div class="hcard hcard-img-tall">
+    <div class="hcard-img"><a href="./files/evidence/software_copyright_v2.png" target="_blank"><img src="./files/evidence/software_copyright_v2.png" alt="Software Copyright Registration Certificate"></a></div>
     <div class="hcard-body">
       <span class="tag gr">Software Copyright</span><span class="tag gl">First Programmer</span>
       <h3 data-cn="含碎石黏土斜坡特性参数及空间变异性分析软件 V1.0">Software for Gravelly-Clay Slope Characteristic Parameter and Spatial Variability Analysis V1.0</h3>
