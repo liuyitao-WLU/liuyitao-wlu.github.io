@@ -79,15 +79,14 @@
     .hobby-group{min-width:0}
     .hobby-header{margin-bottom:8px}
     .hobby-header h3{margin:0;font-size:1.05rem;color:var(--txt)}
-    .hobby-carousel{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:8px 0;cursor:grab}
-    .hobby-carousel:active{cursor:grabbing}
-    .hobby-carousel img,.hobby-carousel video{flex:0 0 280px;min-width:280px;height:180px;object-fit:cover;border-radius:8px;scroll-snap-align:start;transition:transform .2s;background:#000;display:block}
-    .hobby-carousel img:hover,.hobby-carousel video:hover{transform:scale(1.03)}
-    .hobby-carousel::-webkit-scrollbar{height:5px}
-    .hobby-carousel::-webkit-scrollbar-thumb{background:#ccc;border-radius:3px}
-    .hobby-placeholder{flex:0 0 280px;min-width:280px;height:180px;display:flex;align-items:center;justify-content:center;border:2px dashed var(--border);border-radius:8px;color:var(--muted);font-size:.85rem;background:var(--soft)}
+    .hobby-carousel{overflow:hidden;position:relative;padding:8px 0}
+    .hobby-track{display:flex;gap:10px;width:max-content;animation:scroll-hobby 20s linear infinite}
+    .hobby-track:hover{animation-play-state:paused}
+    .hobby-carousel img,.hobby-carousel video{flex:0 0 280px;height:180px;object-fit:cover;border-radius:8px;background:#000;display:block}
+    .hobby-placeholder{flex:0 0 280px;height:180px;display:flex;align-items:center;justify-content:center;border:2px dashed var(--border);border-radius:8px;color:var(--muted);font-size:.85rem;background:var(--soft)}
+    @keyframes scroll-hobby{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
     @media(max-width:820px){.hobby-grid{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:560px){.hobby-grid{grid-template-columns:1fr}.hobby-carousel img,.hobby-carousel video,.hobby-placeholder{flex:0 0 240px;min-width:240px;height:160px}}
+    @media(max-width:560px){.hobby-grid{grid-template-columns:1fr}.hobby-carousel img,.hobby-carousel video,.hobby-placeholder{flex:0 0 240px;height:160px}}
 
     footer{margin-top:60px;text-align:center;font-size:.82em;color:var(--muted);border-top:1px solid var(--border);padding-top:18px}
 
@@ -156,12 +155,14 @@
     <div class="hobby-header">
       <h3 data-cn="唱歌">🎤 Singing</h3>
     </div>
-    <div class="hobby-carousel" id="hobbySinging">
-      <video src="./files/hobbies/2bb7b42a7052496aeafac72b848c145f.mp4" controls preload="auto" playsinline></video>
-      <video src="./files/hobbies/31d832acf27c4fdcafbf2b65cd273c28.mp4" controls preload="auto" playsinline></video>
-      <video src="./files/hobbies/5967c4dea1a18c149d66d47bfc4196a6.mp4" controls preload="auto" playsinline></video>
-      <video src="./files/hobbies/e9dcc5c967862cdfb5037de72459f64b.mp4" controls preload="auto" playsinline></video>
-      <div class="hobby-placeholder" data-cn="待添加更多照片/视频">More photos/videos to be added</div>
+    <div class="hobby-carousel">
+      <div class="hobby-track">
+        <video src="./files/hobbies/2bb7b42a7052496aeafac72b848c145f.mp4" controls preload="metadata" playsinline></video>
+        <video src="./files/hobbies/31d832acf27c4fdcafbf2b65cd273c28.mp4" controls preload="metadata" playsinline></video>
+        <video src="./files/hobbies/5967c4dea1a18c149d66d47bfc4196a6.mp4" controls preload="metadata" playsinline></video>
+        <video src="./files/hobbies/e9dcc5c967862cdfb5037de72459f64b.mp4" controls preload="metadata" playsinline></video>
+        <div class="hobby-placeholder" data-cn="待添加更多照片/视频">More to be added</div>
+      </div>
     </div>
   </div>
 
@@ -169,10 +170,12 @@
     <div class="hobby-header">
       <h3 data-cn="骑行">🚴 Cycling</h3>
     </div>
-    <div class="hobby-carousel" id="hobbyCycling">
-      <img src="./files/hobbies/02ae95b6ccbab3d6024213435851de67.jpg" alt="Cycling 1" loading="lazy">
-      <img src="./files/hobbies/5ec9030e2466c7c5dcb72951da903007.jpg" alt="Cycling 2" loading="lazy">
-      <div class="hobby-placeholder" data-cn="待添加更多照片">More photos to be added</div>
+    <div class="hobby-carousel">
+      <div class="hobby-track">
+        <img src="./files/hobbies/02ae95b6ccbab3d6024213435851de67.jpg" alt="Cycling 1" loading="lazy">
+        <img src="./files/hobbies/5ec9030e2466c7c5dcb72951da903007.jpg" alt="Cycling 2" loading="lazy">
+        <div class="hobby-placeholder" data-cn="待添加更多照片">More photos to be added</div>
+      </div>
     </div>
   </div>
 
@@ -180,12 +183,14 @@
     <div class="hobby-header">
       <h3 data-cn="飞盘">🥏 Frisbee</h3>
     </div>
-    <div class="hobby-carousel" id="hobbyFrisbee">
-      <img src="./files/hobbies/frisbee_1.jpg" alt="Frisbee 1" loading="lazy">
-      <img src="./files/hobbies/frisbee_2.jpg" alt="Frisbee 2" loading="lazy">
-      <img src="./files/hobbies/frisbee_3.jpg" alt="Frisbee 3" loading="lazy">
-      <img src="./files/hobbies/frisbee_4.jpg" alt="Frisbee 4" loading="lazy">
-      <div class="hobby-placeholder" data-cn="待添加更多照片/视频">More photos/videos to be added</div>
+    <div class="hobby-carousel">
+      <div class="hobby-track">
+        <img src="./files/hobbies/frisbee_1.jpg" alt="Frisbee 1" loading="lazy">
+        <img src="./files/hobbies/frisbee_2.jpg" alt="Frisbee 2" loading="lazy">
+        <img src="./files/hobbies/frisbee_3.jpg" alt="Frisbee 3" loading="lazy">
+        <img src="./files/hobbies/frisbee_4.jpg" alt="Frisbee 4" loading="lazy">
+        <div class="hobby-placeholder" data-cn="待添加更多照片/视频">More to be added</div>
+      </div>
     </div>
   </div>
 
@@ -193,12 +198,14 @@
     <div class="hobby-header">
       <h3 data-cn="拍照摄影">📷 Photography</h3>
     </div>
-    <div class="hobby-carousel" id="hobbyPhoto">
-      <img src="./files/hobbies/photo_1.jpg" alt="Photo 1" loading="lazy">
-      <img src="./files/hobbies/photo_2.jpg" alt="Photo 2" loading="lazy">
-      <img src="./files/hobbies/photo_3.jpg" alt="Photo 3" loading="lazy">
-      <img src="./files/hobbies/photo_4.jpg" alt="Photo 4" loading="lazy">
-      <div class="hobby-placeholder" data-cn="待添加更多照片/视频">More photos/videos to be added</div>
+    <div class="hobby-carousel">
+      <div class="hobby-track">
+        <img src="./files/hobbies/photo_1.jpg" alt="Photo 1" loading="lazy">
+        <img src="./files/hobbies/photo_2.jpg" alt="Photo 2" loading="lazy">
+        <img src="./files/hobbies/photo_3.jpg" alt="Photo 3" loading="lazy">
+        <img src="./files/hobbies/photo_4.jpg" alt="Photo 4" loading="lazy">
+        <div class="hobby-placeholder" data-cn="待添加更多照片/视频">More to be added</div>
+      </div>
     </div>
   </div>
 
@@ -206,12 +213,14 @@
     <div class="hobby-header">
       <h3 data-cn="旅游">✈️ Travel</h3>
     </div>
-    <div class="hobby-carousel" id="hobbyTravel">
-      <img src="./files/hobbies/travel_1.jpg" alt="Travel 1" loading="lazy">
-      <img src="./files/hobbies/travel_2.jpg" alt="Travel 2" loading="lazy">
-      <img src="./files/hobbies/travel_3.jpg" alt="Travel 3" loading="lazy">
-      <img src="./files/hobbies/travel_4.jpg" alt="Travel 4" loading="lazy">
-      <div class="hobby-placeholder" data-cn="待添加更多照片/视频">More photos/videos to be added</div>
+    <div class="hobby-carousel">
+      <div class="hobby-track">
+        <img src="./files/hobbies/travel_1.jpg" alt="Travel 1" loading="lazy">
+        <img src="./files/hobbies/travel_2.jpg" alt="Travel 2" loading="lazy">
+        <img src="./files/hobbies/travel_3.jpg" alt="Travel 3" loading="lazy">
+        <img src="./files/hobbies/travel_4.jpg" alt="Travel 4" loading="lazy">
+        <div class="hobby-placeholder" data-cn="待添加更多照片/视频">More to be added</div>
+      </div>
     </div>
   </div>
 
@@ -219,8 +228,10 @@
     <div class="hobby-header">
       <h3 data-cn="游戏">🎮 Gaming</h3>
     </div>
-    <div class="hobby-carousel" id="hobbyGaming">
-      <div class="hobby-placeholder" data-cn="待添加更多照片/视频">More photos/videos to be added</div>
+    <div class="hobby-carousel">
+      <div class="hobby-track">
+        <div class="hobby-placeholder" data-cn="待添加更多照片/视频">More to be added</div>
+      </div>
     </div>
   </div>
 
@@ -445,15 +456,10 @@ function toggleLang(){
     wall.addEventListener('touchmove',e=>{const x=e.touches[0].pageX-wall.offsetLeft;wall.scrollLeft=scrollLeft-(x-startX)});
   }
 
-  // draggable hobby carousels
-  document.querySelectorAll('.hobby-carousel').forEach(carousel=>{
-    let isDown=false,startX,scrollLeft;
-    carousel.addEventListener('mousedown',e=>{isDown=true;carousel.style.cursor='grabbing';startX=e.pageX-carousel.offsetLeft;scrollLeft=carousel.scrollLeft});
-    carousel.addEventListener('mouseleave',()=>{isDown=false;carousel.style.cursor='grab'});
-    carousel.addEventListener('mouseup',()=>{isDown=false;carousel.style.cursor='grab'});
-    carousel.addEventListener('mousemove',e=>{if(!isDown)return;e.preventDefault();const x=e.pageX-carousel.offsetLeft;carousel.scrollLeft=scrollLeft-(x-startX)*1.5});
-    carousel.addEventListener('touchstart',e=>{startX=e.touches[0].pageX-carousel.offsetLeft;scrollLeft=carousel.scrollLeft});
-    carousel.addEventListener('touchmove',e=>{const x=e.touches[0].pageX-carousel.offsetLeft;carousel.scrollLeft=scrollLeft-(x-startX)});
+  // auto-scroll hobby carousels (clone for infinite loop)
+  document.querySelectorAll('.hobby-track').forEach(track=>{
+    const clone=track.innerHTML;
+    track.innerHTML=clone+clone;
   });
 })();
 </script>
