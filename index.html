@@ -66,10 +66,13 @@
     .alist-meta{color:var(--muted);font-size:.78rem;margin-top:3px}
 
     /* photo gallery */
-    .photo-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:10px}
-    .photo-grid img{width:100%;height:220px;object-fit:cover;border-radius:8px;cursor:pointer;transition:transform .2s}
-    .photo-grid img:hover{transform:scale(1.03)}
-    @media(max-width:600px){.photo-grid{grid-template-columns:1fr}.photo-grid img{height:280px}}
+    .photo-wall{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:10px 0;cursor:grab}
+    .photo-wall:active{cursor:grabbing}
+    .photo-wall img{flex:0 0 280px;height:200px;object-fit:cover;border-radius:8px;scroll-snap-align:start;transition:transform .2s}
+    .photo-wall img:hover{transform:scale(1.03)}
+    .photo-wall::-webkit-scrollbar{height:6px}
+    .photo-wall::-webkit-scrollbar-thumb{background:#ccc;border-radius:3px}
+    @media(max-width:600px){.photo-wall img{flex:0 0 220px;height:160px}}
 
     footer{margin-top:60px;text-align:center;font-size:.82em;color:var(--muted);border-top:1px solid var(--border);padding-top:18px}
 
@@ -120,6 +123,14 @@
     <p data-cn="我本科毕业于<strong>中国地质大学（武汉）</strong>地质工程专业，辅修<strong>计算机科学与技术</strong>，GPA <strong>3.93</strong>，排名 <strong>2/69</strong>。2025年获得<strong>国家留学基金委（CSC）全额奖学金</strong>赴圣彼得堡彼得大帝理工大学交换。">I received my B.S. in <strong>Geological Engineering</strong> from <strong>China University of Geosciences (Wuhan)</strong>. During my undergraduate study, I ranked <strong>2/69</strong> with a GPA of <strong>3.93</strong>, and also completed a minor in <strong>Computer Science and Technology</strong>. In 2025, I received a full scholarship from the China Scholarship Council (CSC) for an exchange at Peter the Great St. Petersburg Polytechnic University.</p>
     <p data-cn="我的本科研究方向包括<strong>岩土工程</strong>、<strong>颗粒材料</strong>、<strong>斜坡稳定性</strong>、<strong>岩土力学</strong>和<strong>地质灾害数值模拟</strong>。我特别感兴趣于将实验、力学、数值方法和数据分析相结合，以理解复杂的地质材料和灾害过程。">My undergraduate research focused on <strong>geotechnical engineering</strong>, <strong>granular materials</strong>, <strong>slope stability</strong>, <strong>rock-soil mechanics</strong>, and <strong>numerical simulation of geological hazards</strong>. I am especially interested in combining experiments, mechanics, numerical methods and data analysis to understand complex geomaterials and hazard processes.</p>
     <p><b><i style="color:#c71610;" data-cn="欢迎联系我讨论或合作！">Feel free to contact me if you are interested in discussing or collaborating with me!</i></b></p>
+  </div>
+
+  <!-- Photo Wall -->
+  <div class="photo-wall" id="photoWall">
+    <img src="./files/18ff5f85f7c301e52fe5aaa0ff58c6f9.jpg" alt="Photo 1" loading="lazy">
+    <img src="./files/27251fedb413ccaf0467322d00b61c8b.jpg" alt="Photo 2" loading="lazy">
+    <img src="./files/35bfe6b7b6902f2c72fda3e346bea6ad.jpg" alt="Photo 3" loading="lazy">
+    <img src="./files/364974302c3faea65c323d0b2d60db38.jpg" alt="Photo 4" loading="lazy">
   </div>
 
   <!-- News -->
@@ -304,15 +315,6 @@
     </ul>
   </details>
 
-  <!-- Photos -->
-  <h2 data-cn="个人照片">Photos</h2>
-  <div class="photo-grid">
-    <a href="./files/18ff5f85f7c301e52fe5aaa0ff58c6f9.jpg" target="_blank"><img src="./files/18ff5f85f7c301e52fe5aaa0ff58c6f9.jpg" alt="Photo 1" loading="lazy"></a>
-    <a href="./files/27251fedb413ccaf0467322d00b61c8b.jpg" target="_blank"><img src="./files/27251fedb413ccaf0467322d00b61c8b.jpg" alt="Photo 2" loading="lazy"></a>
-    <a href="./files/35bfe6b7b6902f2c72fda3e346bea6ad.jpg" target="_blank"><img src="./files/35bfe6b7b6902f2c72fda3e346bea6ad.jpg" alt="Photo 3" loading="lazy"></a>
-    <a href="./files/364974302c3faea65c323d0b2d60db38.jpg" target="_blank"><img src="./files/364974302c3faea65c323d0b2d60db38.jpg" alt="Photo 4" loading="lazy"></a>
-  </div>
-
   <footer>
     <span data-cn="最后更新：2026年8月">Last updated: Aug 2026</span>
   </footer>
@@ -337,6 +339,18 @@ function toggleLang(){
 (function(){
   const s=localStorage.getItem('lang');
   if(s==='zh'){isEn=false;toggleLang();}
+
+  // draggable photo wall
+  const wall=document.getElementById('photoWall');
+  if(wall){
+    let isDown=false,startX,scrollLeft;
+    wall.addEventListener('mousedown',e=>{isDown=true;wall.style.cursor='grabbing';startX=e.pageX-wall.offsetLeft;scrollLeft=wall.scrollLeft});
+    wall.addEventListener('mouseleave',()=>{isDown=false;wall.style.cursor='grab'});
+    wall.addEventListener('mouseup',()=>{isDown=false;wall.style.cursor='grab'});
+    wall.addEventListener('mousemove',e=>{if(!isDown)return;e.preventDefault();const x=e.pageX-wall.offsetLeft;wall.scrollLeft=scrollLeft-(x-startX)*1.5});
+    wall.addEventListener('touchstart',e=>{startX=e.touches[0].pageX-wall.offsetLeft;scrollLeft=wall.scrollLeft});
+    wall.addEventListener('touchmove',e=>{const x=e.touches[0].pageX-wall.offsetLeft;wall.scrollLeft=scrollLeft-(x-startX)});
+  }
 })();
 </script>
 </body>
