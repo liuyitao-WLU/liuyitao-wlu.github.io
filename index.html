@@ -222,6 +222,7 @@
       transition:transform .25s,background .2s,box-shadow .2s;
       z-index:2;
     }
+    .hcard-expand-btn[hidden]{display:none!important}
     .hcard-expand-btn:hover{
       background:#fff;
       box-shadow:0 4px 14px rgba(91,108,255,.25);
@@ -976,19 +977,22 @@ document.getElementById('videoModal').addEventListener('click',e=>{if(e.target==
         function sync(){
           var h = img.offsetHeight;
           if(h === 0) return;
-          body.style.maxHeight = h + 'px';
+          // Only set CSS variable — never inline maxHeight, so .exp class can still override via CSS
           body.style.setProperty('--img-height', h + 'px');
-          requestAnimationFrame(function(){
+          setTimeout(function(){
             var overflow = body.scrollHeight > h + 1;
-            btn.style.display = overflow ? 'flex' : 'none';
             if(fade) fade.style.display = overflow ? 'block' : 'none';
-          });
+            if(!overflow) card.classList.add('no-overflow');
+          }, 50);
         }
 
         if(img.complete && img.naturalHeight > 0) sync();
         else {
           img.addEventListener('load', sync);
-          img.addEventListener('error', sync);
+          img.addEventListener('error', function(){
+            body.style.setProperty('--img-height', 'none');
+            if(fade) fade.style.display = 'none';
+          });
         }
         window.addEventListener('resize', sync);
 
