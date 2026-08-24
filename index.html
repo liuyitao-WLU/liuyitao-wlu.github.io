@@ -186,6 +186,53 @@
     .hcard-img{flex:0 0 300px;max-height:210px;overflow:hidden;background:var(--soft)}
     .hcard-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
     .hcard:hover .hcard-img img{transform:scale(1.04)}
+    /* Expandable variant: keep full image visible, sync body height to image */
+    .hcard.hcard-expandable .hcard-img{
+      flex:0 0 320px;max-height:480px;
+      background:#f8fafc;
+      display:flex;align-items:center;justify-content:center;
+    }
+    .hcard.hcard-expandable .hcard-img img{
+      width:100%;height:auto;max-height:480px;
+      object-fit:contain;
+    }
+    .hcard.hcard-expandable .hcard-body{
+      position:relative;overflow:hidden;
+      transition:max-height .35s ease;
+      max-height:var(--img-height,280px);
+    }
+    .hcard.hcard-expandable.exp .hcard-body{max-height:1600px}
+    .hcard-fade{
+      position:absolute;bottom:0;left:0;right:0;
+      height:60px;
+      background:linear-gradient(to bottom,rgba(255,255,255,0),rgba(255,255,255,1));
+      pointer-events:none;opacity:1;
+      transition:opacity .25s;
+    }
+    .hcard.hcard-expandable.exp .hcard-fade{opacity:0}
+    .hcard-expand-btn{
+      position:absolute;bottom:12px;right:16px;
+      width:34px;height:34px;border-radius:50%;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.95);
+      cursor:pointer;
+      display:flex;align-items:center;justify-content:center;
+      color:var(--link);
+      box-shadow:0 2px 8px rgba(15,23,42,.10);
+      transition:transform .25s,background .2s,box-shadow .2s;
+      z-index:2;
+    }
+    .hcard-expand-btn:hover{
+      background:#fff;
+      box-shadow:0 4px 14px rgba(91,108,255,.25);
+      transform:translateY(-1px);
+    }
+    .hcard-expand-btn svg{transition:transform .25s}
+    .hcard.hcard-expandable.exp .hcard-expand-btn svg{transform:rotate(180deg)}
+    @media(max-width:720px){
+      .hcard.hcard-expandable .hcard-body{max-height:none!important;overflow:visible}
+      .hcard-fade,.hcard-expand-btn{display:none!important}
+    }
     .hcard-body{flex:1;padding:16px 18px 16px 0}
     .tag{
       display:inline-block;font-size:.72rem;
@@ -661,8 +708,8 @@
   <!-- Research -->
   <h2 id="research" data-cn="研究与成果">Research & Publications</h2>
 
-  <div class="hcard">
-    <div class="hcard-img"><a href="./files/evidence/paper1_method.png" target="_blank"><img src="./files/evidence/paper1_method.png" alt="Paper1 method flowchart" loading="lazy"></a></div>
+  <div class="hcard hcard-expandable">
+    <div class="hcard-img"><a href="./files/evidence/paper1_method.png" target="_blank"><img src="./files/evidence/paper1_method.png" alt="Paper1 method flowchart"></a></div>
     <div class="hcard-body">
       <span class="tag gl">First Author</span><span class="tag g">Accepted</span>
       <h3 data-cn="残积含碎石黏土边坡力学参数最优采样间距及稳定性评价">Optimal Sampling Interval for Mechanical Parameters and Stability Evaluation of Residual Gravelly-Clay Slopes</h3>
@@ -671,6 +718,8 @@
         <p class="paper-abstract-text" data-cn="<b>摘要：</b>本研究以残积含碎石黏土边坡为实例，通过微型贯入仪连续采样并基于经验公式估算力学参数，结合数值模拟与随机场理论，分析不同采样间距下的边坡稳定性变化规律。提出最优采样间距确定方法：非均质程度较小时，采样间距可设为潜在破坏面长度的 1/3–1/2；非均质程度较大时，关键部位（坡脚）的采样间距需加密至相关距离的一半，其余部位可适当放宽。降雨前后对比验证了方法的有效性。"><b>Abstract:</b> We investigate the optimal sampling interval for mechanical parameters of a residual gravelly-clay slope via miniature penetrometer sampling, numerical stability analysis, and random field theory. We propose a sampling-interval scheme: under low heterogeneity, intervals of 1/3–1/2 of the potential failure-surface length are sufficient; under high heterogeneity, sampling at the slope toe must be densified to roughly half the correlation distance, while other locations can remain coarser. The scheme is validated through pre- vs. post-rainfall comparisons.</p>
         <p class="paper-keywords" data-cn="<b>关键词：</b>残积含碎石黏土边坡 · 力学参数 · 空间变异性 · 边坡稳定性 · 最优采样间距"><b>Keywords:</b> Residual gravelly-clay slope · Mechanical parameters · Spatial variability · Slope stability analysis · Optimal sampling interval</p>
       </div>
+      <div class="hcard-fade"></div>
+      <button class="hcard-expand-btn" aria-expanded="false" aria-label="展开摘要"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
     </div>
   </div>
 
@@ -913,6 +962,41 @@ document.getElementById('videoModal').addEventListener('click',e=>{if(e.target==
         var scrolled = (h.scrollTop || document.body.scrollTop) / ((h.scrollHeight - h.clientHeight) || 1);
         bar.style.width = (scrolled * 100).toFixed(2) + '%';
       }, { passive: true });
+    })();
+
+    // Hcard expandable: sync body height to image height
+    (function(){
+      document.querySelectorAll('.hcard-expandable').forEach(function(card){
+        var img = card.querySelector('.hcard-img img');
+        var body = card.querySelector('.hcard-body');
+        var btn = card.querySelector('.hcard-expand-btn');
+        var fade = card.querySelector('.hcard-fade');
+        if(!img || !body || !btn) return;
+
+        function sync(){
+          var h = img.offsetHeight;
+          if(h === 0) return;
+          body.style.maxHeight = h + 'px';
+          body.style.setProperty('--img-height', h + 'px');
+          requestAnimationFrame(function(){
+            var overflow = body.scrollHeight > h + 1;
+            btn.style.display = overflow ? 'flex' : 'none';
+            if(fade) fade.style.display = overflow ? 'block' : 'none';
+          });
+        }
+
+        if(img.complete && img.naturalHeight > 0) sync();
+        else {
+          img.addEventListener('load', sync);
+          img.addEventListener('error', sync);
+        }
+        window.addEventListener('resize', sync);
+
+        btn.addEventListener('click', function(){
+          var expanded = card.classList.toggle('exp');
+          btn.setAttribute('aria-expanded', expanded);
+        });
+      });
     })();
   </script>
 </body>
