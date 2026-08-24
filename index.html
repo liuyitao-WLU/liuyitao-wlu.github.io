@@ -83,6 +83,15 @@
     .hobby-track{display:flex;gap:10px;width:max-content;animation:scroll-hobby 20s linear infinite}
     .hobby-track:hover{animation-play-state:paused}
     .hobby-carousel img,.hobby-carousel video{flex:0 0 280px;height:180px;object-fit:cover;border-radius:8px;background:#000;display:block}
+    .video-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+    .video-thumb{position:relative;border-radius:8px;overflow:hidden;cursor:pointer;aspect-ratio:16/9;background:#000}
+    .video-thumb video{width:100%;height:100%;object-fit:cover;display:block}
+    .play-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:50px;height:50px;background:rgba(0,0,0,.6);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px;transition:background .2s}
+    .video-thumb:hover .play-btn{background:rgba(0,0,0,.8)}
+    .video-modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.9);z-index:1000;align-items:center;justify-content:center}
+    .video-modal.active{display:flex}
+    .video-modal video{max-width:90%;max-height:90%;border-radius:8px}
+    .video-modal .close-btn{position:absolute;top:20px;right:30px;color:#fff;font-size:36px;cursor:pointer}
     @keyframes scroll-hobby{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
     .travel-stats{display:flex;gap:10px;margin-bottom:10px}
     .ts{background:var(--soft);border:1px solid var(--border);border-radius:6px;padding:5px 12px;font-size:.82rem}
@@ -164,13 +173,22 @@
     <div class="hobby-header">
       <h3 data-cn="唱歌">🎤 Singing</h3>
     </div>
-    <div class="hobby-carousel">
-      <div class="hobby-track">
-        <video src="./files/hobbies/2bb7b42a7052496aeafac72b848c145f.mp4" controls preload="metadata" playsinline></video>
-        <video src="./files/hobbies/31d832acf27c4fdcafbf2b65cd273c28.mp4" controls preload="metadata" playsinline></video>
-        <video src="./files/hobbies/5967c4dea1a18c149d66d47bfc4196a6.mp4" controls preload="metadata" playsinline></video>
-        <video src="./files/hobbies/e9dcc5c967862cdfb5037de72459f64b.mp4" controls preload="metadata" playsinline></video>
-
+    <div class="video-grid">
+      <div class="video-thumb" onclick="openVideo('./files/hobbies/2bb7b42a7052496aeafac72b848c145f.mp4')">
+        <video src="./files/hobbies/2bb7b42a7052496aeafac72b848c145f.mp4" preload="metadata"></video>
+        <div class="play-btn">▶</div>
+      </div>
+      <div class="video-thumb" onclick="openVideo('./files/hobbies/31d832acf27c4fdcafbf2b65cd273c28.mp4')">
+        <video src="./files/hobbies/31d832acf27c4fdcafbf2b65cd273c28.mp4" preload="metadata"></video>
+        <div class="play-btn">▶</div>
+      </div>
+      <div class="video-thumb" onclick="openVideo('./files/hobbies/5967c4dea1a18c149d66d47bfc4196a6.mp4')">
+        <video src="./files/hobbies/5967c4dea1a18c149d66d47bfc4196a6.mp4" preload="metadata"></video>
+        <div class="play-btn">▶</div>
+      </div>
+      <div class="video-thumb" onclick="openVideo('./files/hobbies/e9dcc5c967862cdfb5037de72459f64b.mp4')">
+        <video src="./files/hobbies/e9dcc5c967862cdfb5037de72459f64b.mp4" preload="metadata"></video>
+        <div class="play-btn">▶</div>
       </div>
     </div>
   </div>
@@ -453,6 +471,11 @@
   </footer>
 </div>
 
+<div class="video-modal" id="videoModal">
+  <span class="close-btn" onclick="closeVideo()">&times;</span>
+  <video id="modalVideo" controls></video>
+</div>
+
 <script>
 let isEn=true;
 function toggleLang(){
@@ -469,6 +492,9 @@ function toggleLang(){
   document.documentElement.lang=isEn?'en':'zh-CN';
   localStorage.setItem('lang',isEn?'en':'zh');
 }
+function openVideo(src){const m=document.getElementById('videoModal'),v=document.getElementById('modalVideo');v.src=src;m.classList.add('active');v.play()}
+function closeVideo(){const m=document.getElementById('videoModal'),v=document.getElementById('modalVideo');v.pause();v.src='';m.classList.remove('active')}
+document.getElementById('videoModal').addEventListener('click',e=>{if(e.target===e.currentTarget)closeVideo()});
 (function(){
   const s=localStorage.getItem('lang');
   if(s==='zh'){isEn=false;toggleLang();}
