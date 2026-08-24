@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="Yitao Liu, 刘奕焘, Westlake University, 西湖大学, Ph.D.">
+	<meta name="description" content="Yitao Liu (刘奕焘)'s Home">
+	<title>Yitao Liu (刘奕焘)</title>
+	<style>
+		:root {
+			--link-color: #0366d6;
+			--text-color: #24292f;
+			--muted: #6a737d;
+			--bg: #ffffff;
+			--highlight-bg: #ffffdf;
+			--border: #e1e4e8;
+		}
+		* { box-sizing: border-box; }
+		body {
+			font-family: "Segoe UI", "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+			color: var(--text-color);
+			background: var(--bg);
+			margin: 0;
+			line-height: 1.65;
+		}
+		#layout-content {
+			max-width: 1000px;
+			margin: 0 auto;
+			padding: 40px 30px 60px;
+		}
+		a { color: var(--link-color); text-decoration: none; }
+		a:hover { text-decoration: underline; }
+		h1 { font-size: 2rem; margin-bottom: 0.3em; }
+		h2 {
+			font-size: 1.35rem;
+			border-bottom: 2px solid var(--border);
+			padding-bottom: 6px;
+			margin-top: 2.2em;
+			margin-bottom: 14px;
+		}
+		h3 { margin-top: -8px; margin-bottom: 10px; font-size: 1.05rem; color: var(--text-color); }
+		p { margin: 10px 0; }
+
+		/* header layout */
+		table.header-table { width: 100%; border-collapse: collapse; }
+		td.intro-col { vertical-align: top; padding-right: 20px; }
+		td.avatar-col { width: 250px; text-align: center; vertical-align: top; }
+		.avatar {
+			width: 230px; height: 230px;
+			object-fit: cover;
+			border-radius: 50%;
+			box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+		}
+		.icon-row a img, .icon-row svg { height: 28px; width: auto; vertical-align: middle; margin-bottom: 3px; margin-right: 6px; opacity: 0.85; transition: transform .15s ease, opacity .15s ease; }
+		.icon-row a:hover img { opacity: 1; transform: scale(1.08); }
+		.badges img { height: 20px; margin-right: 6px; vertical-align: middle; }
+
+		@media (max-width: 720px) {
+			table.header-table, tbody, tr, td { display: block; width: 100% !important; }
+			td.avatar-col { text-align: left; margin-top: 20px; }
+			.avatar { width: 160px; height: 160px; }
+		}
+
+		/* news */
+		.news-box {
+			height: 150px;
+			overflow-y: auto;
+			font-size: 0.92em;
+			background: #fafbfc;
+			border: 1px solid var(--border);
+			border-radius: 6px;
+			padding: 10px 16px;
+		}
+		.news-box ul { margin: 6px 0; padding-left: 18px; }
+		.news-box li { margin-bottom: 6px; }
+		.scroll-hint { font-size: 0.8em; color: var(--muted); margin: 4px 0; }
+
+		/* education / research rows */
+		.item-table { width: 100%; border-collapse: collapse; margin-bottom: 18px; }
+		.item-table td { vertical-align: middle; padding: 8px; }
+		.item-logo-cell { width: 300px; text-align: center; }
+		.item-logo {
+			max-height: 90px; max-width: 260px;
+			object-fit: contain;
+		}
+		.item-title { font-weight: 700; font-size: 1em; }
+		.item-sub { font-size: 0.86em; color: var(--text-color); font-weight: 600; }
+		.item-desc { font-size: 0.88em; color: var(--muted); }
+		.pub-note { background: var(--highlight-bg); }
+		.research-img {
+			width: 180px; height: auto;
+			border-radius: 4px;
+			box-shadow: 3px 3px 6px rgba(0,0,0,0.25);
+		}
+		.paper-title { color: #456fc3; font-size: 1em; font-weight: 700; }
+		footer {
+			margin-top: 60px;
+			text-align: center;
+			font-size: 0.82em;
+			color: var(--muted);
+			border-top: 1px solid var(--border);
+			padding-top: 18px;
+		}
+	</style>
+</head>
+<body>
+<div id="layout-content">
+
+	<table class="header-table">
+		<tbody><tr>
+			<td class="intro-col">
+				<h1>Yitao Liu <span style="font-weight:400">(刘奕焘)</span></h1>
+				<h3>🎓 Ph.D. Student @ <a href="https://en.westlake.edu.cn/" target="_blank">Westlake University</a></h3>
+
+				<p class="icon-row" style="margin-top:18px;">
+					<a href="mailto:your-email@example.com" target="_blank" title="Email">
+						<svg viewBox="0 0 24 24" fill="#c71610"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+					</a>
+					<a href="https://github.com/liuyitaocug" target="_blank" title="GitHub">
+						<svg viewBox="0 0 16 16" fill="#181717"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+					</a>
+					<a href="#" title="Google Scholar（替换为你的链接）">
+						<svg viewBox="0 0 24 24" fill="#4285F4"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/></svg>
+					</a>
+					<a href="./files/CV.pdf" title="CV">[CV]</a>
+				</p>
+				<p class="badges">
+					<img alt="GitHub followers" src="https://img.shields.io/github/followers/liuyitaocug?style=social">
+					<a href="https://visitorbadge.io/status?path=https%3A%2F%2Fliuyitaocug.github.io"><img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fliuyitaocug.github.io&label=VISITORS&labelColor=%232ccce4&countColor=%230158f9"></a>
+				</p>
+			</td>
+			<td class="avatar-col">
+				<img class="avatar" src="./files/avatar.jpg" alt="avatar"
+					onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22230%22 height=%22230%22><rect fill=%22%23e8eef5%22 width=%22230%22 height=%22230%22/><text x=%2250%25%22 y=%2255%25%22 font-size=%2230%22 fill=%22%239aa7b5%22 text-anchor=%22middle%22 font-family=%22sans-serif%22>照片占位</text></svg>';">
+			</td>
+		</tr></tbody>
+	</table>
+
+	<h2>Biography</h2>
+	<div style="font-size:0.96em">
+		Hi! I am <strong>Yitao Liu (刘奕焘)</strong>, currently a <u>Ph.D. student</u> at
+		<a href="https://en.westlake.edu.cn/" target="_blank">Westlake University</a>.<br><br>
+
+		<!-- TODO: 在这里补充你的本科院校、专业、导师等信息 -->
+		My research interests include <b>TODO：研究方向一</b>, <b>TODO：研究方向二</b>.
+		<p><b><i style="color:#c71610;">Feel free to contact me if you are interested in discussing or collaborating with me!</i></b></p>
+	</div>
+
+	<h2>News</h2>
+	<div class="news-box">
+		<ul>
+			<li>[08/2026] Started my Ph.D. journey at Westlake University! 🎉</li>
+			<li>[TODO 日期] TODO：获奖/入学/论文等动态。</li>
+		</ul>
+	</div>
+	<div class="scroll-hint">⬆ scrollable</div>
+
+	<h2>Education</h2>
+	<table class="item-table">
+		<tbody><tr>
+			<td class="item-logo-cell">
+				<img class="item-logo" src="https://upload.wikimedia.org/wikipedia/en/a/a6/Westlake_University_logo.svg" alt="Westlake University"
+					onerror="this.style.display='none'">
+			</td>
+			<td>
+				<p class="item-title"><a href="https://en.westlake.edu.cn/" target="_blank">Westlake University</a> (西湖大学)</p>
+				<p class="item-sub">Ph.D. Student · TODO：学院/专业名称</p>
+				<p class="item-desc">Sep. 2026 – Present &nbsp;|&nbsp; Supervisor: TODO 导师姓名</p>
+			</td>
+		</tr></tbody>
+	</table>
+	<table class="item-table">
+		<tbody><tr>
+			<td class="item-logo-cell">
+				<span style="color:#adb5bd;font-size:0.85em;">TODO：本科学校 Logo</span>
+			</td>
+			<td>
+				<p class="item-title">TODO 本科学校名称</p>
+				<p class="item-sub">B.S. in TODO 专业</p>
+				<p class="item-desc">Sep. 20XX – Jun. 20XX</p>
+			</td>
+		</tr></tbody>
+	</table>
+
+	<h2>Research</h2>
+	<div style="height:8px"></div>
+
+	<!-- 复制这个表格即可新增一篇论文/项目 -->
+	<table class="item-table pub-note">
+		<tbody><tr style="width:100%">
+			<td width="210" style="padding-top:10px;padding-bottom:10px;text-align:center;">
+				<img class="research-img" src="./files/research_placeholder.png" alt="teaser"
+					onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22180%22 height=%22135%22><rect fill=%22%23eef3f8%22 width=%22180%22 height=%22135%22/><text x=%2250%25%22 y=%2255%25%22 font-size=%2214%22 fill=%22%239aa7b5%22 text-anchor=%22middle%22 font-family=%22sans-serif%22>Teaser 图占位</text></svg>';">
+			</td>
+			<td style="padding:10px">
+				<b class="paper-title">TODO：论文标题</b>
+				<div style="height:5px"></div>
+				<div class="item-desc"><b><u>Yitao Liu</u></b>, TODO 其他作者</div>
+				<div style="height:5px"></div>
+				<div class="item-desc"><span style="color:#c71610;font-weight:700;">TODO 会议/期刊 年份</span></div>
+				<div style="height:5px"></div>
+				<div class="item-desc">
+					<a href="#">[Paper]</a> /
+					<a href="#">[arXiv]</a> /
+					<a href="#">[Code]</a>
+				</div>
+			</td>
+		</tr></tbody>
+	</table>
+
+	<footer>
+		Last updated: Aug 2026<br>
+		Thanks to <a href="https://github.com/jeffyaoliang" target="_blank">Yaoliang Bian</a>'s homepage for the template inspiration.
+	</footer>
+
+</div>
+</body>
+</html>
